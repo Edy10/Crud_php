@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=10;IE=EmulateIE10" >
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+        <title>Controle de medicamentos</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css\formatacao.css">
+    </head>
+    <body>
+        <div class="col-md-12 col-lg-12">
+            <div class="cadastro">
+                <span class="btn-novo">
+                    <button type="button" class="btn btn-default pull-right" id="btn-novo" name="btn-novo">
+                        <span class="glyphicon glyphicon-plus"></span> <b> Novo </b>
+                    </button>
+                </span>
+                <h4><span class="desc"></span> Cadastro de medicamentos<span class="glyphicon glyphicon-arrow-down"> </span></h4>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-horizontal frm-inclusao" id="frm-inclusao" method="post">
+                            <div class="col-sm-3">
+                                <label for="codMedic" class="pull-left"><b class="obrigatorio">*</b> Código do medicamento:</label>
+                                <input type="number" class="form-control" id="codMedic" name="codMedic" required="true">
+                            </div>
+
+                            <div class="col-sm-9">
+                                <label for="desc" class="pull-left"><b class="obrigatorio">*</b> Descrição:</label>
+                                <input type="text" class="form-control" id="desc" name="desc" required="true" maxlength="100">
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="apMedic" class="pull-left">Apresentação do medicamento:</label>
+                                <input type="text" class="form-control apMedic" id="apMedic" name="apMedic">
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="priAtivo" class="pull-left">Nome do princípio ativo:</label>
+                                <input type="text" class="form-control priAtivo" id="priAtivo" name="priAtivo">
+                            </div>
+
+                            <div class="col-sm-12">
+                                <label for="emp"><b class="obrigatorio">*</b> Empresa a qual pertence:</label>
+                                <select class="form-control" id="emp" name="emp" title="Selecione" required="true">
+                                </select>
+                            </div>
+
+                            <div class="col-sm-12 text-right">
+                                <button type="button" class="btn btn-default btn-style btn-buscar" id="btn-buscar" name="btn-buscar">
+                                    <span class="glyphicon glyphicon glyphicon-search"></span> Buscar
+                                </button>
+                                <button type="button" class="btn btn-default btn-style btn-incluir" id="btn-incluir" name="btn-incluir">
+                                    <span class="glyphicon glyphicon-floppy-saved"></span> Salvar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="relMedicamento">
+                    <h4>Medicamentos<span class="glyphicon glyphicon-arrow-down"></span></h4>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="tableMedi">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Código</th>
+                                            <th>Descrição</th>
+                                            <th>Apresentação do medicamento</th>
+                                            <th>Princípio ativo</th>
+                                            <th>Empresa</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="trMedi"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Monta o Alerte msg -->
+            <div class="container">
+                <div class="row">
+                    <div id="alert">
+                    </div>
+                </div>
+            </div>
+            <!-- Executa a tag carregando no processamnto -->
+            <div class="modal fade modalCarregando" role="dialog" aria-hidden="true">
+                <div class="modal-dialog dialogCarregando">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <div id="carregando" class="spinner">
+                                    <div class="bounce1"></div>
+                                    <div class="bounce2"></div>
+                                    <div class="bounce3"></div>
+                                    <div class="bounce4"></div>
+                                    <div class="bounce5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.2/bootbox.min.js"></script>
+        <script src="js\script.js"></script>
+    </body>
+</html>
